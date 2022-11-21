@@ -22,7 +22,8 @@ publish_function_code(){
 	echo "Line 22"
 	aws lambda update-function-configuration --function-name  "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --region "us-east-1"
 	echo "Line 24"
-	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip --region "us-east-1"
+	sleep 20
+	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip --region "us-east-1" --description "aws:states:opt-out"
 }
 
 update_function_layers(){
