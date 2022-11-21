@@ -27,7 +27,9 @@ publish_function_code(){
 
 update_function_layers(){
 	echo "Using the layer in the function..."	
-	sleep 15
+	echo "Sleeping for one minute"
+	sleep 1m
+	echo "Woke up from one minute sleep"
 	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --region "us-east-1"
 }
 
