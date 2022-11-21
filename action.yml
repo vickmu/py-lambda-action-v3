@@ -1,5 +1,5 @@
-name: Py Lambda Deploy
-author: Mariam Maarouf
+name: Py Lambda Deploy V3
+author: Vick Mu
 description: Deploy python code to AWS Lambda with dependencies in a separate layer.
 inputs:
   requirements_txt:
