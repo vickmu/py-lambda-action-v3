@@ -20,10 +20,10 @@ publish_function_code(){
 	echo "Deploying the code itself..."
 	zip -r code.zip . -x \*.git\*
 	echo "Line 22"
-	aws lambda update-function-configuration --function-name  "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --region "us-east-1"
+	aws lambda update-function-configuration --function-name  "${INPUT_LAMBDA_FUNCTION_NAME}" --region "us-east-1"
 	echo "Line 24"
 	sleep 20
-	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip --region "us-east-1" --description "aws:states:opt-out"
+	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip --region "us-east-1"
 }
 
 update_function_layers(){
@@ -31,7 +31,7 @@ update_function_layers(){
 	echo "Sleeping for one minute"
 	sleep 1m
 	echo "Woke up from one minute sleep"
-	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --region "us-east-1"
+	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --region "us-east-1"
 }
 
 deploy_lambda_function(){
