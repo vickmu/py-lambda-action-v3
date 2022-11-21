@@ -26,10 +26,8 @@ publish_function_code(){
 }
 
 update_function_layers(){
-	echo "Using the layer in the function..."
-	aws lambda update-function-configuration --function-name  "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --region "us-east-1"
-	
-	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --region "us-east-1"
+	echo "Using the layer in the function..."	
+	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --description "aws:states:opt-out" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --region "us-east-1"
 }
 
 deploy_lambda_function(){
